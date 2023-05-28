@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
     "autoprefixer": "10.4.14",
@@ -17,5 +18,10 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.17.19",
+    "esbuild-jest": "^0.5.0",
+    "jest": "^29.5.0"
   }
 }
