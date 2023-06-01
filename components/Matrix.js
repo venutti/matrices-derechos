@@ -1,12 +1,14 @@
 "use client";
 import { useState } from "react";
 
-import { parseValue, maxMinComposition } from "@/utils/operations";
+import {
+  parseValue,
+  maxMinComposition,
+  isValidNumber,
+} from "@/utils/operations";
 
 // empty = null
 const emptyMatrix = Array(8).fill(Array(8).fill(""));
-
-const allowedValues = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
 
 export default function Matrix({ className }) {
   const [matrix, setMatrix] = useState(emptyMatrix);
@@ -35,12 +37,12 @@ export default function Matrix({ className }) {
       alert("Debe completar todos los valores de la matriz");
       return;
     }
-    const invalidValues = parsedMatrix.flat().filter((value) => {
-      return value !== null && !allowedValues.includes(value);
-    });
+    const invalidValues = parsedMatrix
+      .flat()
+      .filter((value) => !isValidNumber(value));
     if (invalidValues.length > 0) {
       alert(
-        `Los valores de la matriz deben ser números entre ${allowedValues.join(
+        `Los valores de la matriz deben ser números entre 0 y 1. Valores inválidos: ${invalidValues.join(
           ", "
         )}`
       );

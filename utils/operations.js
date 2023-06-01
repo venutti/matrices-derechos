@@ -49,3 +49,8 @@ export function parseValue(value) {
   const parsedValue = parseFloat(value.replace(",", "."));
   return isNaN(parsedValue) ? null : parsedValue;
 }
+
+// Receibes a number ans return true if it is in [0,1] interval
+export function isValidNumber(number) {
+  return number >= 0 && number <= 1;
+}
